@@ -3,3 +3,8 @@ export const postTestController = (req, res) => {
 	console.log({ body })
 	res.status(201).end()
 }
+
+export const postTestQueryParamController = (req, res) => {
+	const { params } = req
+	res.end(`Parámetro recibido ${params.id}`)
+}
