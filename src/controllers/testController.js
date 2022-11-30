@@ -5,6 +5,7 @@ export const postTestController = (req, res) => {
 }
 
 export const postTestQueryParamController = (req, res) => {
-	const { params } = req
+	const { params, query } = req
+	console.log({ query })
 	res.end(`Parámetro recibido ${params.id}`)
 }
