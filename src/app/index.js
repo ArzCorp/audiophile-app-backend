@@ -1,4 +1,5 @@
 import express, { json, text } from 'express'
+import path from 'path'
 
 import { HomeRouter } from '../routes/home.routes.js'
 import { notFoundMiddleware } from '../middlewares/notFound.middleware.js'
@@ -9,6 +10,7 @@ app.set('case sensitive routing', true)
 app.set('message', { name: 'Osvaldo' })
 
 app.use(express.static('public'))
+app.use('/home', express.static(path.resolve('./src/pages/home')))
 
 app.use(text())
 
