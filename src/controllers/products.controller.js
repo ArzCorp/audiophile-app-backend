@@ -12,17 +12,39 @@ export const productsTypeController = (req, res) => {
 		(product) => product.category === productType
 	)
 
-	if (leakedProducts.length <= 0) {
-		responseTemplate.error = true
-		responseTemplate.code = 404
-		responseTemplate.message = 'No se encontraron productos'
-		responseTemplate.success = false
-		responseTemplate.status = 'ERROR'
+	if (leakedProducts.length === 0)
+		return res.json({
+			...responseTemplate,
+			error: true,
+			code: 404,
+			message: 'No se encontraron productos',
+			success: false,
+			status: 'ERROR',
+		})
 
-		return res.json(responseTemplate)
-	}
+	return res.json({
+		...responseTemplate,
+		data: leakedProducts,
+	})
+}
 
-	responseTemplate.data = leakedProducts
+export const productIdController = (req, res) => {
+	const { id } = req.params
 
-	return res.json(responseTemplate)
+	const leakedProducts = products.filter((product) => product.id === Number(id))
+
+	if (leakedProducts.length <= 0)
+		return res.json({
+			...responseTemplate,
+			error: true,
+			code: 404,
+			message: 'No se encontraron productos',
+			success: false,
+			status: 'ERROR',
+		})
+
+	return res.json({
+		...responseTemplate,
+		data: leakedProducts,
+	})
 }

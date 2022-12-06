@@ -1,5 +1,6 @@
 import express, { json, text } from 'express'
 import path from 'path'
+import cors from 'cors'
 
 import { HomeRouter } from '../routes/home.routes.js'
 import { notFoundMiddleware } from '../middlewares/notFound.middleware.js'
@@ -10,6 +11,7 @@ export const app = express()
 app.set('case sensitive routing', true)
 app.set('message', { name: 'Osvaldo' })
 
+app.use(cors())
 app.use(express.static('public'))
 app.use('/home', express.static(path.resolve('./src/pages/home')))
 
