@@ -1,12 +1,13 @@
 import express, { json, text } from 'express'
+import cors from 'cors'
 
 import { HomeRouter } from '../routes/home.routes.js'
 import { notFoundMiddleware } from '../middlewares/notFound.middleware.js'
+import { productsRouter } from '../routes/products.routes.js'
 
 export const app = express()
 
-app.set('case sensitive routing', true)
-app.set('message', { name: 'Osvaldo' })
+app.use(cors())
 
 app.use(express.static('public'))
 
@@ -16,6 +17,6 @@ app.use(json())
 
 app.use(HomeRouter)
 
-console.log(app.get('message'))
+app.use(productsRouter)
 
 app.use(notFoundMiddleware)
