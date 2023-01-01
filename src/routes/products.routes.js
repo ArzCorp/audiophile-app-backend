@@ -1,5 +1,6 @@
 import { Router } from 'express'
 import {
+	addProductController,
 	productIdController,
 	productsController,
 	productsTypeController,
@@ -12,3 +13,5 @@ productsRouter.get('/products', productsController)
 productsRouter.get('/products/:productType', productsTypeController)
 
 productsRouter.get('/products/id/:id', productIdController)
+
+productsRouter.post('/products/:product', addProductController)

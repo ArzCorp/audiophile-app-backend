@@ -7,8 +7,20 @@ export const responseTemplate = {
 	error: null,
 }
 
+export const TRUE = true
+export const FALSE = false
+
+export const NOT_FOUND_CODE = 404
+export const NOT_FOUND_PRODUCT_MESSAGE = 'No se encontraron productos'
+export const NOT_FOUND_STATUS = '404'
+
+export const NOT_DATA_RETURN_CODE = 201
+
+export const ADD_TO_CART_SUCCESS_MESSAGE = 'Producto agregado al carrito'
+
 export const products = [
 	{
+		amountOnCart: 0,
 		id: 1,
 		slug: 'yx1-earphones',
 		name: 'YX1 Wireless Earphones',
@@ -94,6 +106,7 @@ export const products = [
 		],
 	},
 	{
+		amountOnCart: 0,
 		id: 2,
 		slug: 'xx59-headphones',
 		name: 'XX59 Headphones',
@@ -175,6 +188,7 @@ export const products = [
 		],
 	},
 	{
+		amountOnCart: 0,
 		id: 3,
 		slug: 'xx99-mark-one-headphones',
 		name: 'XX99 Mark I Headphones',
@@ -266,6 +280,7 @@ export const products = [
 		],
 	},
 	{
+		amountOnCart: 0,
 		id: 4,
 		slug: 'xx99-mark-two-headphones',
 		name: 'XX99 Mark II Headphones',
@@ -361,6 +376,7 @@ export const products = [
 		],
 	},
 	{
+		amountOnCart: 0,
 		id: 5,
 		slug: 'zx7-speaker',
 		name: 'ZX7 Speaker',
@@ -446,6 +462,7 @@ export const products = [
 		],
 	},
 	{
+		amountOnCart: 0,
 		id: 6,
 		slug: 'zx9-speaker',
 		name: 'ZX9 Speaker',
