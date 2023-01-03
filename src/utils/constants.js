@@ -16,7 +16,11 @@ export const NOT_FOUND_STATUS = '404'
 
 export const NOT_DATA_RETURN_CODE = 201
 
-export const ADD_TO_CART_SUCCESS_MESSAGE = 'Producto agregado al carrito'
+export const NOT_FOUND_PRODUCTS_IN_CART = 'No tienes productos en tu carrito'
+export const DELETE_TO_CART_SUCCESS_MESSAGE = (productName) =>
+	`Producto ${productName} eliminado del carrito`
+export const ADD_TO_CART_SUCCESS_MESSAGE = (productName) =>
+	`Producto ${productName} agregado al carrito`
 
 export const products = [
 	{
