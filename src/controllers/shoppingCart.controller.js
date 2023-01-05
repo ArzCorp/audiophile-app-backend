@@ -32,7 +32,8 @@ export const getShoppingCart = (req, res) => {
 }
 
 export const addProductToShoppingCart = (req, res) => {
-	const { params } = req
+	const { params, body } = req
+
 	const product = findProduct(params.productId)
 
 	if (!product) {
@@ -42,7 +43,12 @@ export const addProductToShoppingCart = (req, res) => {
 		})
 	}
 
-	product.amountOnCart += 1
+	if (body.amount > 0) {
+		product.amountOnCart += body.amount
+	} else {
+		product.amountOnCart += 1
+	}
+
 	res.status(NOT_DATA_RETURN_CODE).json({
 		...responseTemplate,
 		message: ADD_TO_CART_SUCCESS_MESSAGE(product.name),
@@ -51,7 +57,7 @@ export const addProductToShoppingCart = (req, res) => {
 }
 
 export const deleteProductToShoppingCart = (req, res) => {
-	const { params } = req
+	const { params, body } = req
 	const product = findProductInShoppingCart(params.productId)
 
 	if (!product) {
@@ -61,7 +67,12 @@ export const deleteProductToShoppingCart = (req, res) => {
 		})
 	}
 
-	product.amountOnCart -= 1
+	if (body.amount > 0) {
+		product.amountOnCart -= body.amount
+	} else {
+		product.amountOnCart -= 1
+	}
+
 	return res.status(NOT_DATA_RETURN_CODE).json({
 		...responseTemplate,
 		message: DELETE_TO_CART_SUCCESS_MESSAGE(product.name),
