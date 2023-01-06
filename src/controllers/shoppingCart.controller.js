@@ -1,6 +1,8 @@
 import {
 	ADD_TO_CART_SUCCESS_MESSAGE,
+	DELETE_ALL_PRODUCTS_SUCCESS,
 	DELETE_TO_CART_SUCCESS_MESSAGE,
+	EMPTY_ARRAY,
 	NOT_DATA_RETURN_CODE,
 	NOT_FOUND_PRODUCTS_IN_CART,
 	products,
@@ -22,6 +24,7 @@ export const getShoppingCart = (req, res) => {
 			error: TRUE,
 			message: NOT_FOUND_PRODUCTS_IN_CART,
 			code: NOT_DATA_RETURN_CODE,
+			data: EMPTY_ARRAY,
 		})
 	}
 
@@ -76,6 +79,16 @@ export const deleteProductToShoppingCart = (req, res) => {
 	return res.status(NOT_DATA_RETURN_CODE).json({
 		...responseTemplate,
 		message: DELETE_TO_CART_SUCCESS_MESSAGE(product.name),
+		code: NOT_DATA_RETURN_CODE,
+	})
+}
+
+export const deleteAllProductsToShoppingCart = (req, res) => {
+	products.forEach((product) => (product.amountOnCart = 0))
+
+	res.status(NOT_DATA_RETURN_CODE).json({
+		...responseTemplate,
+		message: DELETE_ALL_PRODUCTS_SUCCESS,
 		code: NOT_DATA_RETURN_CODE,
 	})
 }

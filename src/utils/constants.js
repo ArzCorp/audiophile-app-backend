@@ -9,6 +9,7 @@ export const responseTemplate = {
 
 export const TRUE = true
 export const FALSE = false
+export const EMPTY_ARRAY = []
 
 export const NOT_FOUND_CODE = 404
 export const NOT_FOUND_PRODUCT_MESSAGE = 'No se encontraron productos'
@@ -22,11 +23,14 @@ export const DELETE_TO_CART_SUCCESS_MESSAGE = (productName) =>
 export const ADD_TO_CART_SUCCESS_MESSAGE = (productName) =>
 	`Producto ${productName} agregado al carrito`
 
+export const DELETE_ALL_PRODUCTS_SUCCESS = 'Todos los productos eliminados'
+
 export const products = [
 	{
 		amountOnCart: 0,
 		id: 1,
 		slug: 'yx1-earphones',
+		shortName: 'YX1',
 		name: 'YX1 Wireless Earphones',
 		image: {
 			mobile: '/img/product-yx1-earphones/mobile/image-product.jpg',
@@ -113,6 +117,7 @@ export const products = [
 		amountOnCart: 0,
 		id: 2,
 		slug: 'xx59-headphones',
+		shortName: 'XX59',
 		name: 'XX59 Headphones',
 		image: {
 			mobile: '/img/product-xx59-headphones/mobile/image-product.jpg',
@@ -195,6 +200,7 @@ export const products = [
 		amountOnCart: 0,
 		id: 3,
 		slug: 'xx99-mark-one-headphones',
+		shortName: 'XX99',
 		name: 'XX99 Mark I Headphones',
 		image: {
 			mobile: '/img/product-xx99-mark-one-headphones/mobile/image-product.jpg',
@@ -287,6 +293,7 @@ export const products = [
 		amountOnCart: 0,
 		id: 4,
 		slug: 'xx99-mark-two-headphones',
+		shortName: 'XX99',
 		name: 'XX99 Mark II Headphones',
 		image: {
 			mobile: '/img/product-xx99-mark-two-headphones/mobile/image-product.jpg',
@@ -383,6 +390,7 @@ export const products = [
 		amountOnCart: 0,
 		id: 5,
 		slug: 'zx7-speaker',
+		shortName: 'ZX7',
 		name: 'ZX7 Speaker',
 		image: {
 			mobile: '/img/product-zx7-speaker/mobile/image-product.jpg',
@@ -469,6 +477,7 @@ export const products = [
 		amountOnCart: 0,
 		id: 6,
 		slug: 'zx9-speaker',
+		shortName: 'ZX9',
 		name: 'ZX9 Speaker',
 		image: {
 			mobile: '/img/product-zx9-speaker/mobile/image-product.jpg',
