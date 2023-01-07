@@ -5,6 +5,7 @@ import { HomeRouter } from '../routes/home.routes.js'
 import { notFoundMiddleware } from '../middlewares/notFound.middleware.js'
 import { productsRouter } from '../routes/products.routes.js'
 import { shoppingCartRouter } from '../routes/shoppingCart.routes.js'
+import { checkoutRouter } from '../routes/checkout.routes.js'
 
 export const app = express()
 
@@ -21,5 +22,7 @@ app.use(HomeRouter)
 app.use(productsRouter)
 
 app.use(shoppingCartRouter)
+
+app.use(checkoutRouter)
 
 app.use(notFoundMiddleware)

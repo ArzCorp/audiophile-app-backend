@@ -13,6 +13,9 @@ export const EMPTY_ARRAY = []
 export const EMPTY_OBJECT = {}
 export const _0 = 0
 
+export const IVA = 0.16
+export const SHIPPING_COST = 50
+
 export const NOT_FOUND_CODE = 404
 export const NOT_FOUND_PRODUCT_MESSAGE = 'No se encontraron productos'
 export const NOT_FOUND_STATUS = '404'

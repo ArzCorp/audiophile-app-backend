@@ -13,16 +13,14 @@ import {
 import {
 	findProduct,
 	findProductInShoppingCart,
+	getProductsToShoppingCart,
+	getTotalCostToShoppingCart,
 	responseProductNotFound,
 } from '../utils/productsUtils.js'
 
 export const getShoppingCart = (req, res) => {
-	const productsInCart = products.filter((product) => product.amountOnCart > 0)
-	const productsCost = productsInCart.reduce(
-		(accumulator, current) =>
-			current.price * current.amountOnCart + accumulator,
-		_0
-	)
+	const productsInCart = getProductsToShoppingCart()
+	const productsCost = getTotalCostToShoppingCart()
 
 	if (productsInCart.length <= 0) {
 		return res.status(NOT_DATA_RETURN_CODE).json({
