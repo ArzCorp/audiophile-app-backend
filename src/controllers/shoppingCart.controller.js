@@ -2,12 +2,13 @@ import {
 	ADD_TO_CART_SUCCESS_MESSAGE,
 	DELETE_ALL_PRODUCTS_SUCCESS,
 	DELETE_TO_CART_SUCCESS_MESSAGE,
-	EMPTY_ARRAY,
+	EMPTY_OBJECT,
 	NOT_DATA_RETURN_CODE,
 	NOT_FOUND_PRODUCTS_IN_CART,
 	products,
 	responseTemplate,
 	TRUE,
+	_0,
 } from '../utils/constants.js'
 import {
 	findProduct,
@@ -17,6 +18,11 @@ import {
 
 export const getShoppingCart = (req, res) => {
 	const productsInCart = products.filter((product) => product.amountOnCart > 0)
+	const productsCost = productsInCart.reduce(
+		(accumulator, current) =>
+			current.price * current.amountOnCart + accumulator,
+		_0
+	)
 
 	if (productsInCart.length <= 0) {
 		return res.status(NOT_DATA_RETURN_CODE).json({
@@ -24,13 +30,16 @@ export const getShoppingCart = (req, res) => {
 			error: TRUE,
 			message: NOT_FOUND_PRODUCTS_IN_CART,
 			code: NOT_DATA_RETURN_CODE,
-			data: EMPTY_ARRAY,
+			data: EMPTY_OBJECT,
 		})
 	}
 
 	return res.json({
 		...responseTemplate,
-		data: productsInCart,
+		data: {
+			products: productsInCart,
+			total: productsCost,
+		},
 	})
 }
 

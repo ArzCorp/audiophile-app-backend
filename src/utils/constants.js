@@ -10,6 +10,8 @@ export const responseTemplate = {
 export const TRUE = true
 export const FALSE = false
 export const EMPTY_ARRAY = []
+export const EMPTY_OBJECT = {}
+export const _0 = 0
 
 export const NOT_FOUND_CODE = 404
 export const NOT_FOUND_PRODUCT_MESSAGE = 'No se encontraron productos'
