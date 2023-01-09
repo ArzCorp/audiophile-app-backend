@@ -5,6 +5,7 @@ import {
 	products,
 	responseTemplate,
 	TRUE,
+	_0,
 } from './constants.js'
 
 export const findProduct = (productId) =>
@@ -29,4 +30,17 @@ export const responseProductNotFound = ({ res, product }) => {
 			status: NOT_FOUND_STATUS,
 		})
 	}
+}
+
+export const getProductsToShoppingCart = () =>
+	products.filter((product) => product.amountOnCart > 0)
+
+export const getTotalCostToShoppingCart = () => {
+	const productsInCart = getProductsToShoppingCart()
+
+	return productsInCart.reduce(
+		(accumulator, current) =>
+			current.price * current.amountOnCart + accumulator,
+		_0
+	)
 }
