@@ -1,28 +1,20 @@
 import express, { json, text } from 'express'
 import cors from 'cors'
 
-import { HomeRouter } from '../routes/home.routes.js'
+import { FILE_PATH } from '../utils/constants.js'
 import { notFoundMiddleware } from '../middlewares/notFound.middleware.js'
-import { productsRouter } from '../routes/products.routes.js'
-import { shoppingCartRouter } from '../routes/shoppingCart.routes.js'
-import { checkoutRouter } from '../routes/checkout.routes.js'
+import { homeRouter } from '../routes/home.routes.js'
 
 export const app = express()
 
 app.use(cors())
 
-app.use(express.static('public'))
-
 app.use(text())
 
 app.use(json())
 
-app.use(HomeRouter)
+app.use(express.static(FILE_PATH.PUBLIC))
 
-app.use(productsRouter)
-
-app.use(shoppingCartRouter)
-
-app.use(checkoutRouter)
+app.use(homeRouter)
 
 app.use(notFoundMiddleware)
