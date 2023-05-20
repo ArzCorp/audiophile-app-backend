@@ -4,6 +4,7 @@ import cors from 'cors'
 import { FILE_PATH } from '../utils/constants.js'
 import { notFoundMiddleware } from '../middlewares/notFound.middleware.js'
 import { homeRouter } from '../routes/home.routes.js'
+import { productsRouter } from '../routes/products.routes.js'
 
 export const app = express()
 
@@ -16,5 +17,7 @@ app.use(json())
 app.use(express.static(FILE_PATH.PUBLIC))
 
 app.use(homeRouter)
+
+app.use(productsRouter)
 
 app.use(notFoundMiddleware)
