@@ -1,7 +1,8 @@
-# Audiophile app backend - 🔖v1.0.0
-This is a server for an audiophile app, built with node js and express.
-# TODO
- - Create database
- - Connect database
-# Data Base
-[Diagrama](https://drive.google.com/file/d/1hvPdiOGduAsXVRcawGUUxAKZA4NFXFlr/view?usp=share_link)
+## Installation
+
+For this app, you need to install mysql, node js first, clone database by following below [repository](https://github.com/ArzCorp/audiophile-sql) on your local machine, when you have finished above steps, you can clone this repository by following below command.
+
+```bash
+  git clone git@github.com:ArzCorp/audiophile-app-backend.git
+  cd audiophile-app-backend
+```
