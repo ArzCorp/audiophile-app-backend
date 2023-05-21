@@ -4,7 +4,7 @@ export const RESPONSE_TEMPLATE = Object.freeze({
   success: true,
   data: [],
   code: 200,
-  error: null,
+  error: false,
   message: '',
   results: 0,
 })
@@ -23,13 +23,16 @@ export const FILE_PATH = Object.freeze({
 export const ROUTES = Object.freeze({
   HOME: '/',
   PRODUCTS: '/products/:category',
+  CATEGORIES: '/categories',
 })
 
 export const QUERYS = Object.freeze({
   GET_PRODUCTS: 'CALL `get_products_by_category`(?)',
+  GET_CATEGORIES: 'SELECT `id`, `name` FROM `categories`',
 })
 
 export const ERRORS = Object.freeze({
   NO_PRODUCTS_FOUND: 'No se encontraron productos.',
+  NO_CATEGORIES_FOUND: 'No se encontraron categorías.',
   GENERAL: 'Error, intente de nuevo',
 })
