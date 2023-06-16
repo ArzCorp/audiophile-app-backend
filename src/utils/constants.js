@@ -22,12 +22,14 @@ export const FILE_PATH = Object.freeze({
 
 export const ROUTES = Object.freeze({
   HOME: '/',
-  PRODUCTS: '/products/:category',
+  GET_PRODUCTS: '/products/:category',
+  GET_PRODUCT: '/products/product/:id',
   CATEGORIES: '/categories',
 })
 
 export const QUERYS = Object.freeze({
   GET_PRODUCTS: 'CALL `get_products_by_category`(?)',
+  GET_PRODUCT: 'SELECT * FROM `products` WHERE `id` = ?',
   GET_CATEGORIES: 'SELECT `id`, `name` FROM `categories`',
 })
 
@@ -35,4 +37,5 @@ export const ERRORS = Object.freeze({
   NO_PRODUCTS_FOUND: 'No se encontraron productos.',
   NO_CATEGORIES_FOUND: 'No se encontraron categorías.',
   GENERAL: 'Error, intente de nuevo',
+  NO_PRODUCT_FOUND: 'No se encontro el producto.',
 })
